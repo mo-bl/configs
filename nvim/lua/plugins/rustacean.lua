@@ -4,6 +4,24 @@ return {
     "mrcjkb/rustaceanvim",
     version = "^5", -- Recommended
     lazy = false, -- This plugin is already lazy
+    config = function()
+      vim.g.rustaceanvim = {
+        tools = {
+          autoSetHints = true,
+        },
+        server = {
+          settings = {
+            ["rust-analyzer"] = {
+              cargo = { allFeatures = true },
+              checkOnSave = {
+                enable = true,
+                command = "check", -- or "clippy"
+              },
+            },
+          },
+        },
+      }
+    end,
   },
 }
 --     dependencies = {
